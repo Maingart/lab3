@@ -1,0 +1,86 @@
+\input{defines/defines_task1}
+
+\section{Задача 1. Дать характеристику}
+\subsection{Постановка задачи}
+Для следующих дифференциальных уравнений дать характеристику и найти
+общее решение с помощью программ компьютерной математики:
+
+\begin{enumerate}
+    \item $ \equationFirst $
+    \item $ \equationSecond $
+    \item $ \equationThird $
+    \item $ \equationFourth $
+    \item $ \equationFifth $
+\end{enumerate}
+
+\subsection{Решение}
+\begin{enumerate}
+    \solutionItemFirst
+        {\equationFirst}
+        {
+        	Уравнение, неразрешенное относительно производной,
+        	вида $ F(y, y') = 0 $. \\
+        }
+        {
+        	\customCases
+        		{y = p^2-p^2\tan{p}}
+        		{x = \ln{\cos{p}}-p(\tan{p}+2) + C}
+        }
+
+	\clearpage
+
+    \solutionItemFirst
+	    {\equationSecond}
+	    {
+	    	Уравнение, неразрешенное относительно производной,
+	    	вида $ F(x, y') = 0 $. \\
+	    	Разрешимо, как квадратное уравнение относительно y'.
+    	}
+	    {
+	    	\customCases
+				{y\sqrt{y^2 -16e^x} + y^2 = Ce^{2x} + 8e^x}
+				{ y\sqrt{y^2 -16e^x} + y^2 = 8e^x + C}
+	    		{x = \ln{\dfrac{y^2}{16}}}
+    	}
+
+	\vspace{2em}
+
+	\solutionItemFirst
+		{\equationThird}
+		{
+			Уравнение, неразрешенное относительно производной,
+			вида $ F(x, y, y') = 0 $. \\
+			Разрешимо, как квадратное уравнение относительно y'.
+		}
+		{
+			\customCases
+				{{y} = C_1 - x^2}
+				{{y} = 2x^2 + C_2}
+		}
+
+	\vspace{2em}
+
+	\solutionItemFirst
+		{\equationFourth}
+		{
+			Уравнение, неразрешенное относительно производной,
+			вида $ F(x, y') = 0 $. \\
+			Разрешимо, как уравнение Лагранжа.
+		}
+		{
+			\customCases
+				{x=\dfrac{C-(2p^2-4p+4)e^p}{p^3}}	
+				{y=\dfrac{3C-2(3p^2-6p+6)e^p}{2p^2} + e^p}
+		}
+
+	\clearpage
+
+	\solutionItemFirst
+		{\equationFifth}
+		{
+			Уравнение, неразрешенное относительно производной,
+			вида $ F(x, y, y') = 0 $. \\
+		}
+		{$ y=C_1x-\sin^{C_1}{C_1} $}
+
+\end{enumerate} 

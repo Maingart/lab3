@@ -1,0 +1,21 @@
+\def \equationFirst {\dfrac{y}{y'^2} = 1 - \tan{y'}}
+
+\def \equationSecond {{y'}^2 - 2xy' = 8x^2}
+
+\def \equationThird {{y'^2 - yy' + 4e^x = 0}}
+
+\def \equationFourth {y = \dfrac{3}{2}xy' + e^{y'}}
+
+\def \equationFifth {\ln{(xy'^2 - yy')} = y'\ln{\sin{y'} + \ln{y'}}}
+
+\newcommand{\solutionItemFirst}[3]{
+    \item
+        $ #1 $
+
+		\textit{Характеристика:} 
+		\begin{tabular}[t]{p{9cm}} 
+			#2
+		\end{tabular}
+
+        \textit{Общее решение:} #3
+}

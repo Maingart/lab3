@@ -1,0 +1,94 @@
+\def \equationFirst {\sin^2{y'} - \cos{y} = e^{xy} \cdot \cos^2{y'}}
+\def \conditionFirst { y(1) = -2\pi }
+\def \toFindFirst { y(\pi) }
+
+\def \equationSecond {\tan{(xy^2)} - \dfrac{5e^{4x}}{y} = \arcsin{y'} + 1}
+\def \conditionSecond { y(0) = -2 }
+\def \toFindSecond { y\left(\dfrac{\pi}{3}\right) }
+
+\input{common/cpprules.tex}
+
+\begin{scontents}
+\begin{lstlisting}
+#include <iostream>
+#include <fstream>
+#include <cmath> 
+
+typedef double F(double,double);
+
+double euler(F f, double y0, double x0, double xN, double h)
+{
+	std::ofstream fout("ode_results1.txt"); 
+	double y = y0;
+	for (double x = x0; x < xN; x += h) {
+		y += h * f(x, y);
+		fout << x << ' ' << y << '\n';
+	}
+	fout.close();
+	return y;
+}
+
+double fun(double x, double y) {
+	return acos(sqrt((1 - cos(y)) / (exp(x*y) + 1)));
+}
+
+int main()
+{
+	euler(fun, -2*M_PI, 1, M_PI, 0.00001);			  
+}
+
+\end{lstlisting}
+\end{scontents}
+
+\begin{scontents}
+\begin{lstlisting}
+#include <iostream>
+#include <fstream>
+#include <cmath> 
+
+typedef double F(double,double);
+
+double euler(F f, double y0, double x0, double xN, double h)
+{
+	std::ofstream fout("ode_results2.txt"); 
+	double y = y0;
+	for (double x = x0; x < xN; x += h) {
+		y += h * f(x, y);
+		fout << x << ' ' << y << '\n';
+	}
+	fout.close();
+	return y;
+}
+
+double fun(double x, double y) {
+	return sin(tan(x * y * y) - 5 * exp(4 * x) / y - 1);
+}
+
+int main()
+{
+	euler(fun, -2, 0, M_PI/3, 0.00001);
+}
+
+\end{lstlisting}
+\end{scontents}
+
+\newcommand{\solutionItemSecond}[5]{
+	\item
+	    \customCases{#2}{#3}
+	    
+	    
+	    \vspace{1em}
+	    \textit{Решим численно:} $ #4 \approx #5 $
+	    
+ 	    \vspace{1em}
+	    \textit{График:}
+	    \begin{figure}[h]
+	    	\centering
+	    	\includegraphics[width=\textwidth]{img/euler#1.pdf}
+	    \end{figure}
+    
+    	\clearpage
+    	\textit{Код:}
+    		\getstored[#1]{contents}
+}
+
